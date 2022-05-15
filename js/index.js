@@ -1,3 +1,5 @@
+import {addSelectMonth, chacngeSelectMonth} from "./addSelectValue.js"
+
 const months = ["Травень","Червень","Липень","Серпень", "Вересень", "Жовтень"];
 const numberMonths = [5,6,7,8,9,10];
 const days = [31,30,31,31,30,31];
@@ -96,6 +98,9 @@ const innerMonthsInHtml = () => {
     document.querySelector(".months_item").classList.add("active_month")   
     clickChooseMonth()
     clickChooseDays()
+    addSelectMonth(months)
+    chacngeSelectMonth(days)
+    
 }
 
 const inner_months_items = (indexmonth = 0) => {
@@ -111,7 +116,7 @@ const inner_months_items = (indexmonth = 0) => {
         for(let i=0; i <= 5; i++){
             calendar_item += ` <li class="calendar_item opacity_calendar_item">-</li>`
         }
-    }else{
+    }else{ 
         let date = new Date(2022, numberMonths[indexmonth] - 1  , 1)
         for(let i=0; i < date.getDay() - 1; i++){
             calendar_item += ` <li class="calendar_item opacity_calendar_item">-</li>`
@@ -208,10 +213,31 @@ const clickCheckBox = () => {
         }
     })
 }
+
+const clickButtonAdd = () => {
+    document.querySelector(".box_add_holiday_buttonAdd").addEventListener("click", ()=> {
+        const arrTypeHoliday = ['встреча с экспертом', 'вопрос-ответ', 'конференция', 'вебинар'];
+        const typeHoliday = document.querySelector(".box_add_holiday_selectTypeHoliday").value
+        const info = document.querySelector(".box_add_holiday_selectTypeHoliday").value
+        const month = document.querySelector(".box_add_holiday_selectMonth").value
+        const day = document.querySelector(".box_add_holiday_selectNumberdays").value
+    
+        const newHoliday = {
+            "holiday": arrTypeHoliday[typeHoliday],
+            "day": Number(day),
+            "month": numberMonths[month],
+            "style": Number(typeHoliday)
+        }
+        holidays.push(newHoliday)
+        console.log('holidays', holidays)
+        inner_months_items(globalIndexMonth)
+    })
+}
+
 clickCheckBox()
 innerMonthsInHtml()
 inner_months_items()
- 
+clickButtonAdd()
 
 function sortByDay(arr) {
     return arr.sort((a, b) => a.day > b.day ? 1 : -1);

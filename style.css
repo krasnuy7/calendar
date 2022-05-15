@@ -3,6 +3,14 @@
     padding: 0;
     box-sizing: border-box;
 }
+@font-face {
+    font-family: "MontserratRegular"; /* Имя шрифта */
+    src: url("./fonts/Montserrat-Regular.ttf"); /* Путь к файлу со шрифтом */
+}
+body{
+    font-family: "MontserratRegular" !important;
+}
+
 ol, ul {
     padding-left: 0rem !important;
 }
@@ -10,6 +18,8 @@ ol, ul {
 li{
     list-style: none;
 }
+
+
 
 .container{
     width: 1280px;
@@ -30,7 +40,7 @@ li{
 
 .months_box{
     border: 1px solid black;
-    width: 500px;
+    width: 620px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -121,5 +131,29 @@ li{
 }
 
 .week_box_days{
-    margin-right: 54px
+    margin-right: 50px
+}
+.box_add_holiday{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 150px;
+}
+.box_add_holiday_selectTypeHoliday{
+    width: 300px;
+}
+.box_add_holiday_inputInfo{
+    width: 300px;
+}
+.box_add_holiday_selectMonth{
+    width: 300px;
+}
+.box_add_holiday_selectNumberdays{
+    width: 300px;
+}
+.box_add_holiday_buttonAdd{
+    width: 300px;
+}
+.sectionAddHolidayForm{
+    width: 620px;
 }

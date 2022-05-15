@@ -18,7 +18,25 @@
     </header>
 
     <main class="container">
+        <section class="center sectionAddHolidayForm">
+            <h3>Добавить праздник</h3>
+            <div class="box_add_holiday">
+                <select class="box_add_holiday_selectTypeHoliday">
+                    <option value="0">встреча с экспертом</option>
+                    <option value="1">вопрос-ответ</option>
+                    <option value="2">конференция</option>
+                    <option value="3">вебинар</option>
+                </select> 
+                <input class="box_add_holiday_inputInfo" type="text" placeholder="Доп-информация"/>
+                <select class="box_add_holiday_selectMonth">
+                </select>
+                <select class="box_add_holiday_selectNumberdays">
+                </select>
+                <button class="box_add_holiday_buttonAdd">Добавить</button>             
+            </div>
+        </section>
         <section class="center">
+            <h3 class="center sectionAddHolidayForm">Фильтр</h3>
             <ul class="center choose_holiday_box">
                 <li>
                     <label class="label_choose_holiday">
@@ -58,6 +76,6 @@
     </main>
    
 
-<script src="./js/index.js"></script> 
+<script type="module" src="./js/index.js"></script> 
 </body>
 </html>
